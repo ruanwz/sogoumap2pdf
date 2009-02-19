@@ -1,0 +1,87 @@
+h1. sogoumap2pdf
+
+h2. What
+
+download map from map.sogou.com and convert to pdf
+
+h2. Installing
+
+<pre syntax="ruby">sudo gem install sogoumap2pdf</pre>
+
+h2. The basics
+* Find out the link for center image of the map(using Firebug for Firefox)
+* Generate the pdf map using command sogoumap2pdf
+* The command syntax for sogoumap2pdf:
+sogoumap2pdf link x_pixels x y_pixels row x column save_file.pdf <s|sp|m>
+** s is for satellite picture only
+** sp is for both satellite and path info
+** m is for a normal map
+
+h2. Links for some cities:
+* Beijing:http://hbpic3.go2map.com/seamless/0/180/792/518/192/103647_38598.JPG
+* Shanghai:http://hbpic3.go2map.com/seamless/0/180/792/540/145/108175_29128.JPG
+* Tianjing:http://hbpic3.go2map.com/seamless/0/180/792/521/188/104367_37713.JPG
+* Chongqin:http://hbpic2.go2map.com/seamless/0/180/792/474/137/94897_27407.JPG
+* Chendu:http://hbpic4.go2map.com/seamless/0/180/792/463/142/92685_28539.JPG
+* Dalian:http://hbpic2.go2map.com/seamless/0/180/792/541/187/108301_37462.JPG
+* Fuzhou:http://hbpic0.go2map.com/seamless/0/180/792/531/119/106244_23925.JPG
+* Guangzhou:http://hbpic0.go2map.com/seamless/0/180/792/504/105/100915_21050.JPG
+* Hangzhou:http://hbpic1.go2map.com/seamless/0/180/792/535/140/107001_28156.JPG
+* Jinan:http://hbpic4.go2map.com/seamless/0/180/792/520/174/104176_34934.JPG
+* Kunming:http://hbpic0.go2map.com/seamless/0/180/792/457/114/91472_22905.JPG
+* Nanjing:http://hbpic1.go2map.com/seamless/0/180/792/528/149/105778_29981.JPG
+* Qingdao:http://hbpic0.go2map.com/seamless/0/180/792/536/171/107220_34345.JPG
+* Sanya:http://hbpic4.go2map.com/seamless/0/180/792/487/82/97523_16429.JPG
+* Shenzhen:http://hbpic4.go2map.com/seamless/0/180/792/507/102/101555_20499.JPG
+* Shenyan:http://hbpic0.go2map.com/seamless/0/180/792/549/204/109907_40820.JPG
+* Wuhan:http://hbpic3.go2map.com/seamless/0/180/792/508/142/101779_28448.JPG
+* Xian:http://hbpic4.go2map.com/seamless/0/180/792/485/161/97019_32314.JPG
+* Hongkong:http://hbpic3.go2map.com/seamless/0/180/792/508/101/101692_20253.JPG
+* Zhengzhou:http://hbpic4.go2map.com/seamless/0/180/792/506/164/101221_32844.JPG
+* Qinghuangdao:http://hbpic3.go2map.com/seamless/0/180/792/532/193/106514_38638.JPG
+
+
+
+h2. Demonstration of usage
+
+* sogoumap2pdf http://hbpic3.go2map.com/seamless/0/180/711/252/52/50460_10528.JPG 800x600 3x3 test.pdf sp
+* "Example map":http://rubyforge.org/frs/download.php/41583/guangzhou.pdf
+
+The trunk repository is <code>git://rubyforge.org/sogoumap2pdf.git</code> for anonymous access.
+
+You can fetch the source from:
+
+<% rubyforge_project_id="6825" %>
+<% if rubyforge_project_id %>
+
+* rubyforge: "http://rubyforge.org/scm/?group_id=<%= rubyforge_project_id %>":http://rubyforge.org/scm/?group_id=<%= rubyforge_project_id %>
+
+<pre>git clone git://rubyforge.org/sogoumap2pdf.git</pre>
+
+<% else %>
+
+* rubyforge: MISSING IN ACTION
+
+TODO - You can not created a RubyForge project, OR have not run <code>rubyforge config</code>
+yet to refresh your local rubyforge data with this projects' id information.
+
+When you do this, this message will magically disappear!
+
+Or you can hack website/index.txt and make it all go away!!
+
+<% end %>
+
+h3. Build and test instructions
+
+<pre>cd sogoumap2pdf
+rake test
+rake install_gem</pre>
+
+
+h2. License
+
+This code is free to use under the terms of the MIT license. 
+
+h2. Contact
+
+Comments are welcome. Send an email to "David Ruan":mailto:ruanwz@gmail.com 

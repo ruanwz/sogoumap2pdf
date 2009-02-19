@@ -1,0 +1,60 @@
+#!/usr/bin/env ruby
+#
+#  Created on 2008-8-19.
+#  Copyright (c) 2008. All rights reserved.
+
+begin
+  require 'rubygems'
+rescue LoadError
+  # no rubygems to load, so we fail silently
+end
+
+require 'optparse'
+require 'sogoumap2pdf'
+include Sogoumap2pdf
+# NOTE: the option -p/--path= is given as an example, and should probably be replaced in your application.
+
+OPTIONS = {
+  :path     => '~'
+}
+MANDATORY_OPTIONS = %w(  )
+
+parser = OptionParser.new do |opts|
+  opts.banner = <<BANNER
+This application is wonderful because...
+
+Usage: #{File.basename($0)} [options]
+
+Options are:
+BANNER
+  opts.separator ""
+  opts.on("-p", "--path=PATH", String,
+          "The root path for selecting files",
+          "Default: ~") { |OPTIONS[:path]| }
+  opts.on("-h", "--help",
+          "Show this help message.") { puts opts; exit }
+  opts.parse!(ARGV)
+
+  if MANDATORY_OPTIONS && MANDATORY_OPTIONS.find { |option| OPTIONS[option.to_sym].nil? }
+    puts opts; exit
+  end
+end
+
+path = OPTIONS[:path]
+
+# do stuff
+#
+# guangzhou: ruby map2pdf.rb http://hbpic3.go2map.com/seamless/0/180/792/504/105/100899_21033.JPG 0 0 30 30 guangzhou.pdf sp
+# guangzhou: ruby map2pdf.rb http://hbpic3.go2map.com/seamless/0/180/792/504/105/100899_21033.JPG 0x0 30x30 guangzhou.pdf sp
+link=ARGV[0]
+option=ARGV[4]
+x,y=ARGV[1].split("x")
+r,c=ARGV[2].split("x")
+g=SogouMapImage.new(link, option)
+gmpdf=ImageToPdf.new(".JPG",x,y)
+xres, yres = gmpdf.perfect_fit(x.to_i,y.to_i,r.to_i,c.to_i)
+g.fill_map(xres,yres)
+g.fill_map2
+gmpdf.front_page(g)
+gmpdf.create_pages(g)
+gmpdf.save(ARGV[3])

@@ -1,0 +1,49 @@
+body { 	font-family:Trebuchet MS;
+	font-size : 100%;
+	background-color :White;
+	text-align: center;
+	height: auto;
+	min-height: 100%;
+	padding: 0;
+	margin:20px auto 0px auto}
+	
+.container {
+	width : 800px;
+	margin: 0px auto 0px auto;
+}	
+
+a img {
+border: 0px none;
+}
+
+#title {
+	padding: 20px 0 35px 0;
+}
+
+#releaseinfo {
+	text-align : left;
+	padding : 0 0 0 30%;
+	font-size : 75%;
+}
+
+#releaseinfo div {
+	color : blue;
+}
+
+#footer { 	
+	font-size : 65%;
+}
+
+#cmdList {
+  width : 600px;
+  margin: 0px auto 0px auto;
+  text-align : left;
+}
+
+#cmdList td {
+  vertical-align: top;
+}
+
+#credit { 	
+	font-size : 65%;
+}

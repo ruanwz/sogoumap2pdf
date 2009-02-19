@@ -1,0 +1,4 @@
+
+For more information on sogoumap2pdf, see http://sogoumap2pdf.rubyforge.org
+
+
